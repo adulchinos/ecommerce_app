@@ -1,0 +1,62 @@
+
+<div class="product">
+<h3><%= @product.title %></h3>
+<img src ="<%= @product.image %>" height="400">
+
+<% if @product.vendor %>
+<h5>Sourced from <%= Vendor.find(@product.vendor_id).name %></h5>
+<% end %>
+
+<p><%= @product.description %></p>
+<h5><%= @product.message %></h5>
+
+
+						<p><%= @product.product_options.name %></p>
+
+						<% @product.product_options.each do |option| %>
+						  	<li><%= option.number_of_bulbs %> <%= number_to_currency(option.price) %></li>
+						  <% end %>
+
+
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    Number of bulbs
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+
+  <% @product.product_options.each do |option| %>
+  	<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= option.number_of_bulbs %> <%= number_to_currency(option.price) %></a></li>
+  <% end %>
+
+  </ul>
+</div>
+
+
+				<%= form_tag "/orders" do %>
+				<%= label_tag :quantity %>
+				<%= text_field_tag :quantity %>
+
+					<%= hidden_field_tag :product_id, @product.id %>
+					<%= hidden_field_tag :subtotal, @product.price %>
+					<%= hidden_field_tag :tax, @product.tax %>
+
+				<%= submit_tag "PURCHASE" %>
+				<% end %>
+
+
+
+<h5>Subtotal: <%= number_to_currency(@product.price) %></h5>
+
+<h5>Subtotal: <%= number_to_currency(@product.price) %></h5> <!-- ...price that is displayed here. -->
+<h5>Tax: <%= number_to_currency(@product.tax) %></h5>
+<h5>Total: <%= number_to_currency(@product.total) %></h5>
+
+<a href="" class="button">PURCHASE</a>
+
+
+	
+<!-- <a href="/products/<%= @product.id %>" data-method="delete" rel="nofollow" data-confirm="Are you sure?">DESTROY</a> -->
+
+</div>

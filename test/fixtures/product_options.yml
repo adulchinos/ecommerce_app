@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  one: MyString
+  three: MyString
+  five: MyString
+  ten: MyString
+  twenty_five: MyString
+  fifty: MyString
+  one_hundred: MyString
+
+two:
+  one: MyString
+  three: MyString
+  five: MyString
+  ten: MyString
+  twenty_five: MyString
+  fifty: MyString
+  one_hundred: MyString

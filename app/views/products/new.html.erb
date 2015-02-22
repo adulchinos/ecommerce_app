@@ -1,0 +1,28 @@
+<p>upload a new product here:</p>
+
+
+
+
+
+
+	<%= form_tag '/products' do %>
+
+	<%= label_tag :title %>
+	<%= text_field_tag :title %>
+
+	<%= label_tag :image %>
+	<%= text_field_tag :image %>
+
+	<%= label_tag :description %>
+	<%= text_field_tag :description %>
+
+	<%= label_tag :category %>
+	<%= text_field_tag :category %>
+
+	<%= label_tag :price %>
+	<%= text_field_tag :price %>
+
+	
+
+	<%= submit_tag "submit" %>
+	<% end %>

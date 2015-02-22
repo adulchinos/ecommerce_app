@@ -1,0 +1,18 @@
+<h1>Homepage</h1>
+
+		<div class='row'>
+			<% @products.each do |product| %>
+
+					<div class= "col-md-4 col-sm-6">
+						<h3><%= product.title %></h3>
+						<a href = "/products/<%= product.id %>"><img src ="<%= product.image %>" height="400"></a>
+						<p><%= product.description %></p>
+
+						<h5><%= number_to_currency(product.price) %></h5>
+						<a href="" class="button">PURCHASE</a>
+					</div>
+
+			<% end %>	
+		</div>
+
+</div>
