@@ -34,7 +34,7 @@
 </div>
 
 
-				<%= form_tag "/orders" do %>
+				<%= form_tag "/carted_products" do %>
 				<%= label_tag :quantity %>
 				<%= text_field_tag :quantity %>
 
@@ -42,8 +42,9 @@
 					<%= hidden_field_tag :subtotal, @product.price %>
 					<%= hidden_field_tag :tax, @product.tax %>
 
-				<%= submit_tag "PURCHASE" %>
+				<%= submit_tag "Add to cart" %>
 				<% end %>
+
 
 
 
@@ -53,7 +54,6 @@
 <h5>Tax: <%= number_to_currency(@product.tax) %></h5>
 <h5>Total: <%= number_to_currency(@product.total) %></h5>
 
-<a href="" class="button">PURCHASE</a>
 
 
 	

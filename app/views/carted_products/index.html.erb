@@ -1,0 +1,9 @@
+<h1>Shopping cart</h1>
+
+<% @carted_products.each do |carted_product| %>
+	<h3><%= carted_product.title %></h3>
+	<%end%>
+
+	<%= form_tag "/orders/#{@order.id}", :method => :patch do %>
+		<%= submit_tag "complete purchase" %>
+	<%end%>
