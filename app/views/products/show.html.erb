@@ -33,7 +33,7 @@
   </ul>
 </div>
 
-
+			<% if user_signed_in? %>
 				<%= form_tag "/carted_products" do %>
 				<%= label_tag :quantity %>
 				<%= text_field_tag :quantity %>
@@ -44,6 +44,7 @@
 
 				<%= submit_tag "Add to cart" %>
 				<% end %>
+			<% end %>
 
 
 

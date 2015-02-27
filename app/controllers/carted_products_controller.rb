@@ -1,5 +1,5 @@
 class CartedProductsController < ApplicationController
-
+before_action :authenticate_user!
 	def create
 		@order = Order.find_by(:status => "pending", :user_id => current_user.id)
 		if @order 
@@ -24,12 +24,17 @@ class CartedProductsController < ApplicationController
 	end
 
 	def index
-		if @order #INCOMPLETE!!#INCOMPLETE!!#INCOMPLETE!!#INCOMPLETE!!#INCOMPLETE!!#INCOMPLETE!!#INCOMPLETE!!
+		# if user_signed_in?
 			@order = Order.find_by(:user_id =>current_user.id, :status => "pending")
-			@carted_products = order.carted_products
+			if @order
+			@carted_products = @order.carted_products
 		else
 			flash[:warning] = "there is nothing in your shopping cart"
 			redirect_to "/"
 		end
+	# else
+	# 	flash[:warning] = "please sign in"
+	# 	redirect_to "/"
+	# end
 	end
 end
