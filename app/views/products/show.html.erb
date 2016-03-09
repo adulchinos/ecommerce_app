@@ -11,10 +11,10 @@
 <h5><%= @product.message %></h5>
 
 
-						  <p><%= @product.product_options.name %></p>
+						<!--  <p><%= @product.product_options.name %></p>
 
 						<% @product.product_options.each do |option| %>
-						  	<li><%= option.number_of_bulbs %> <%= number_to_currency(option.price) %></li>
+						  	<li><%= option.number_of_bulbs %> for <%= number_to_currency(option.price) %></li>
 						  <% end %> 
 
 
@@ -27,33 +27,33 @@
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 
   <% @product.product_options.each do |option| %>
-  	<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= option.number_of_bulbs %> <%= number_to_currency(option.price) %></a></li>
+  	<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= option.number_of_bulbs %> for <%= number_to_currency(option.price) %></a></li>
   <% end %>
 
   </ul>
-</div> 
+</div> -->
 
 			<% if user_signed_in? %>
 				<%= form_tag "/carted_products" do %>
 				<%= label_tag :quantity %>
-				<%= text_field_tag :quantity %>
+				<%= text_field_tag :quantity, :class => "form-control" %>
 
 					<%= hidden_field_tag :product_id, @product.id %>
 					<%= hidden_field_tag :subtotal, @product.price %>
 					<%= hidden_field_tag :tax, @product.tax %>
 
-				<%= submit_tag "Add to cart" %>
+				<%= submit_tag "Add to cart", :class => "btn" %>
 				<% end %>
 			<% end %>
 
 
 
+<!--
+<h5>Subtotal: <%= number_to_currency(@product.price) %></h5> -->
 
-<h5>Subtotal: <%= number_to_currency(@product.price) %></h5>
-
-<h5>Subtotal: <%= number_to_currency(@product.price) %></h5> <!-- ...price that is displayed here. -->
-<h5>Tax: <%= number_to_currency(@product.tax) %></h5>
-<h5>Total: <%= number_to_currency(@product.total) %></h5>
+<!-- <h5>Subtotal: <%= number_to_currency(@product.price) %></h5> <!-- ...price that is displayed here. --> 
+<!-- <h5>Tax: <%= number_to_currency(@product.tax) %></h5>
+<h5>Total: <%= number_to_currency(@product.total) %></h5> -->
 
 
 
