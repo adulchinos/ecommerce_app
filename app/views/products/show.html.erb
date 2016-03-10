@@ -33,10 +33,11 @@
   </ul>
 </div> -->
 
+<div>
 			<% if user_signed_in? %>
 				<%= form_tag "/carted_products" do %>
 				<%= label_tag :quantity %>
-				<%= text_field_tag :quantity %>
+				<div class="form"> <%= text_field_tag :quantity %> </div>
 
 					<%= hidden_field_tag :product_id, @product.id %>
 					<%= hidden_field_tag :subtotal, @product.price %>
@@ -45,7 +46,7 @@
 				<%= submit_tag "Add to cart", :class => "btn darkfont" %>
 				<% end %>
 			<% end %>
-
+</div>
 
 
 <!--
